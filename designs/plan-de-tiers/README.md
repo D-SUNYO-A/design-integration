@@ -34,15 +34,19 @@ Chaque section a son propre contenu, reproduit d'après les captures de référe
 - **Général** — Saisie (Compte général, Compte auxiliaire, Contact, toggle « Compte
   actif » encadré) + Identification (Nom ou raison sociale, Contact nom).
 - **Adresse** — Domiciliation : 2 lignes d'adresse, Ville/Pays, Téléphone/Fax, e-mail.
-- **Coordonnées bancaires** — Titulaire, Domiciliation, IBAN, Code SWIFT/BIC + Devise.
+- **Coordonnées bancaires** ¹ — bouton « Comptes bancaires » ; Nom de la banque,
+  Domiciliation (1)/(2), Ville, Pays, Code Banque/Guichet (+ « Vérifier… »),
+  N° de compte/Clé, Code SWIFT, IBAN.
 - **Correspondant bancaire** — Nom de banque, Domiciliations, Ville/Pays, Code
   banque/guichet (+ « Vérifier »), N° de compte/clé, Code SWIFT/IBAN.
-- **Taxe** — Régime de taxe, N° TVA intracommunautaire, Taux par défaut, Compte de taxe.
+- **Taxe** ¹ — Types de Taxes, Numéro R.C., N.I.F. / N.I.U, N° statistique, N° BAD,
+  Mode de paiement.
 - **Pièces jointes** — label « Documents » + zone de dépôt (icône, « Glissez vos
   fichiers ici », « PDF, JPG ou PNG · 10 Mo max », bouton « Parcourir… »).
 - **Pied de page** — « Les champs marqués * sont requis. » + Annuler / Enregistrer.
 
-Les 6 sections sont reproduites d'après les captures de référence fournies.
+> ¹ Champs **réalignés sur l'application cible** (réf. fournies séparément), qui
+> diffèrent de la maquette Claude Design d'origine. Le style natif Variante B est conservé.
 
 ## Références visuelles
 

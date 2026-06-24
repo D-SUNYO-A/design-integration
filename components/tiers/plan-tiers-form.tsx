@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { ArrowUp, Check, X } from "lucide-react"
+import { ArrowUp, Briefcase, Check, X } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
@@ -284,38 +284,68 @@ function AdresseSection() {
 function BancaireSection() {
   return (
     <div className="space-y-4">
-      <GroupLabel
-        title="Coordonnées bancaires"
-        hint="Compte bancaire principal du tiers."
-      />
+      <div className="flex items-start justify-between gap-4">
+        <GroupLabel
+          title="Coordonnées bancaires"
+          hint="Compte bancaire principal du tiers."
+        />
+        <Button type="button" variant="outline">
+          <Briefcase />
+          Comptes bancaires
+        </Button>
+      </div>
 
-      <Field label="Titulaire du compte" htmlFor="titulaire">
-        <Input id="titulaire" placeholder="ACME Distribution SARL" />
-      </Field>
-      <Field label="Domiciliation" htmlFor="banque-domiciliation">
-        <Input id="banque-domiciliation" placeholder="Crédit Agricole — Lyon Part-Dieu" />
-      </Field>
-      <Field label="IBAN" htmlFor="iban">
-        <Input id="iban" placeholder="FR76 0000 0000 0000 0000 0000 000" />
+      <Field label="Nom de la banque" htmlFor="banque-nom">
+        <Input id="banque-nom" placeholder="BNP Paribas" />
       </Field>
 
-      <Row>
-        <Field label="Code SWIFT / BIC" htmlFor="swift">
-          <Input id="swift" placeholder="AGRIFRPPXXX" />
-        </Field>
-        <Field label="Devise" htmlFor="devise">
-          <Select defaultValue="eur">
-            <SelectTrigger id="devise" className="w-full">
-              <SelectValue placeholder="Devise" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="eur">EUR</SelectItem>
-              <SelectItem value="usd">USD</SelectItem>
-              <SelectItem value="chf">CHF</SelectItem>
-            </SelectContent>
-          </Select>
-        </Field>
-      </Row>
+      <Field label="Domiciliation (1)" htmlFor="banque-dom1">
+        <Input id="banque-dom1" placeholder="Agence centrale" />
+      </Field>
+      <Field label="Domiciliation (2)" htmlFor="banque-dom2">
+        <Input id="banque-dom2" placeholder="Complément" />
+      </Field>
+
+      <Field label="Ville" htmlFor="banque-ville">
+        <Input id="banque-ville" placeholder="Paris" />
+      </Field>
+      <Field label="Pays" htmlFor="banque-pays">
+        <Select>
+          <SelectTrigger id="banque-pays" className="w-full">
+            <SelectValue placeholder="Sélectionner un pays" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="fr">France</SelectItem>
+            <SelectItem value="be">Belgique</SelectItem>
+            <SelectItem value="ch">Suisse</SelectItem>
+          </SelectContent>
+        </Select>
+      </Field>
+
+      <Field label="Code Banque / Guichet" htmlFor="banque-code">
+        <div className="flex gap-2">
+          <Input id="banque-code" placeholder="Code banque" className="flex-1" />
+          <Input aria-label="Guichet" placeholder="Guichet" className="w-28" />
+          <Button type="button" variant="outline">
+            <Check />
+            Vérifier…
+          </Button>
+        </div>
+      </Field>
+
+      <Field label="N° de compte bancaire / Clé" htmlFor="banque-compte">
+        <div className="flex gap-2">
+          <Input id="banque-compte" placeholder="N° de compte" className="flex-1" />
+          <Input aria-label="Clé" placeholder="Clé" className="w-20" />
+        </div>
+      </Field>
+
+      <Field label="Code SWIFT" htmlFor="banque-swift">
+        <Input id="banque-swift" placeholder="BNPAFRPPXXX" />
+      </Field>
+      <Field label="IBAN" htmlFor="banque-iban">
+        <Input id="banque-iban" placeholder="FR76 …" />
+      </Field>
     </div>
   )
 }
@@ -392,42 +422,46 @@ function CorrespondantSection() {
 function TaxeSection() {
   return (
     <div className="space-y-4">
-      <GroupLabel title="Taxe" hint="Paramètres de TVA appliqués par défaut." />
+      <GroupLabel title="Taxe" hint="Identifiants fiscaux et mode de règlement du tiers." />
 
-      <Field label="Régime de taxe" htmlFor="regime-taxe">
+      <Field label="Types de Taxes" htmlFor="types-taxes">
         <Select>
-          <SelectTrigger id="regime-taxe" className="w-full">
-            <SelectValue placeholder="Sélectionner un régime" />
+          <SelectTrigger id="types-taxes" className="w-full">
+            <SelectValue placeholder="Sélection…" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="normal">Réel normal</SelectItem>
-            <SelectItem value="simplifie">Réel simplifié</SelectItem>
-            <SelectItem value="franchise">Franchise en base</SelectItem>
+            <SelectItem value="tva">TVA</SelectItem>
+            <SelectItem value="exonere">Exonéré</SelectItem>
+            <SelectItem value="precompte">Précompte</SelectItem>
           </SelectContent>
         </Select>
       </Field>
 
-      <Row>
-        <Field label="N° TVA intracommunautaire" htmlFor="tva-intra">
-          <Input id="tva-intra" placeholder="FR 00 000000000" />
-        </Field>
-        <Field label="Taux par défaut" htmlFor="taux">
-          <Select>
-            <SelectTrigger id="taux" className="w-full">
-              <SelectValue placeholder="Taux" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="20">20 %</SelectItem>
-              <SelectItem value="10">10 %</SelectItem>
-              <SelectItem value="5.5">5,5 %</SelectItem>
-              <SelectItem value="0">0 %</SelectItem>
-            </SelectContent>
-          </Select>
-        </Field>
-      </Row>
+      <Field label="Numéro R.C." htmlFor="numero-rc">
+        <Input id="numero-rc" />
+      </Field>
+      <Field label="N.I.F. / N.I.U" htmlFor="nif-niu">
+        <Input id="nif-niu" />
+      </Field>
+      <Field label="N° statistique" htmlFor="num-statistique">
+        <Input id="num-statistique" />
+      </Field>
+      <Field label="N° BAD" htmlFor="num-bad">
+        <Input id="num-bad" />
+      </Field>
 
-      <Field label="Compte de taxe" htmlFor="compte-taxe">
-        <Input id="compte-taxe" placeholder="445660 — TVA déductible" />
+      <Field label="Mode de paiement" htmlFor="mode-paiement">
+        <Select>
+          <SelectTrigger id="mode-paiement" className="w-full">
+            <SelectValue placeholder="Sélectionner…" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="virement">Virement</SelectItem>
+            <SelectItem value="cheque">Chèque</SelectItem>
+            <SelectItem value="especes">Espèces</SelectItem>
+            <SelectItem value="traite">Traite</SelectItem>
+          </SelectContent>
+        </Select>
       </Field>
     </div>
   )
