@@ -28,6 +28,7 @@ dans une session navigateur authentifiée (extension Claude-in-Chrome), puis
 
 ## Designs intégrés
 
-| Design | Périmètre | Statut |
-| ------ | --------- | ------ |
-| [plan-de-tiers](plan-de-tiers/README.md) | Variante B (sommaire latéral) | ✅ Intégré → `/tiers/nouveau` |
+| Design | Source | Périmètre | Statut |
+| ------ | ------ | --------- | ------ |
+| [plan-de-tiers](plan-de-tiers/README.md) | Claude Design | Variante B (sommaire latéral) | ✅ Intégré → `/tiers/nouveau` |
+| [fiche-contact](fiche-contact/README.md) | App cible (capture) | Formulaire complet (4 sections) | ✅ Intégré → `/contacts/nouveau` |
