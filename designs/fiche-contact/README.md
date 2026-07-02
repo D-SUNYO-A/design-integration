@@ -21,6 +21,15 @@ Formulaire en **défilement unique** (pas d'onglets), en-tête avec actions
   (interrupteur), Email Tomself + « Réinitialiser mot de passe » (activés selon
   l'interrupteur), Commentaire (zone de texte), Pièces Jointes (Parcourir).
 
+### Cartes annexes (empilées en bas de page)
+
+[`components/contacts/contact-action-cards.tsx`](../../components/contacts/contact-action-cards.tsx) :
+
+- **Signature** — zone de dessin (pad) + Supprimer / Importer / Annuler / Valider.
+- **Importer un tampon** — dépôt d'image (PNG/JPG, 5 Mo) + Annuler / Importer.
+- **Codes QR** — onglets Lien / Description, aperçu QR, URL de partage, Copier
+  (branché au presse-papiers) / Télécharger.
+
 ## Écarts assumés
 
 - **Couleur d'accent** : la capture utilise un **bleu** primaire (bouton principal,
@@ -32,3 +41,7 @@ Formulaire en **défilement unique** (pas d'onglets), en-tête avec actions
 - **Type (radio-cards)** : les **sublabels et descriptions** ne figuraient pas dans le
   modèle fourni (générique « Label (Sublabel) + description ») — remplis avec un
   contenu FR plausible **à ajuster** (`TYPES` dans le composant).
+- **Aperçu QR** : rendu par une icône `QrCode` (placeholder). Brancher un générateur
+  (ex. `qrcode`) pour produire le vrai code à partir de l'URL de partage.
+- **Signature pad** : coquille visuelle (zone « Cliquez ou dessinez ici ») — la logique
+  de dessin (canvas) reste à ajouter si besoin.
