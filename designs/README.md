@@ -34,3 +34,4 @@ dans une session navigateur authentifiée (extension Claude-in-Chrome), puis
 | [fiche-contact](fiche-contact/README.md) | App cible (capture) | Formulaire complet (4 sections) | ✅ Intégré → `/contacts/nouveau` |
 | [contact-card](contact-card/README.md) | App cible (capture) | Carte contact / tiers | ✅ Intégré → `/contacts/repertoire` |
 | [entite](entite/README.md) | App cible (capture) | Page Entité, 3 onglets | ✅ Intégré → `/parametres/entite` |
+| [balance-generale](balance-generale/README.md) | App cible (capture) | Tableau balance générale | ✅ Intégré → `/comptabilite/balance` |
